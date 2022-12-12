@@ -1,16 +1,34 @@
-<html>
-    <head>
-        <center>ANKAY el blog mas completo de anime</center>
-        <style type="text/css">
-                       .azul { color:blue }
-                       .rojo { color:red  }
-        </style>
-    </head>
-    <body>
-        <span class="rojo">este es el blog mas completo de anime donde podras realizar busquedas, como posteos</span>
-        <br>ta es una línea, y a continuación insertamos un salto de línea.<br/>
-        <p>Esto es un párrafo.</p>
-        <p>creador y editor. Nicolas Amato.</p>
-    </body>
-</html>
+{% extends 'index.html' %}
 
+{% load static %}
+
+{% block codigoDinamico %}
+        <!-- Page content-->
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Post content-->
+                        <article>
+                            <!-- Post content-->
+                            <section class="mb-5">
+
+                                <h2 class="fs-9 mb-4"><strong>¿Quiénes somos?</strong></h2>
+
+                                <p class="fs-5 fst-italic mb-4">Somos una comunidad de escritores y artistas que propone brindar todo su conosimiento sobre Animes y Mangas</p>
+                                
+                                <h4 class="text-muted fst-italic mb-1 text-center"> <strong>AnKAy</strong></h4>
+                                <h4 class="text-muted fst-italic mb-1 text-center"></h4>
+                                <h4 class="text-muted fst-italic mb-1 text-center"></h4>
+                                <h4 class="text-muted fst-italic mb-1 text-center">s</h4>
+                                <h4 class="text-muted fst-italic mb-1 text-center"></h4>
+                                <h4 class="text-muted fst-italic mb-3 text-center"></h4>
+
+
+                                <h2 class="fs-9 mb-4"><strong>Proyecto ANKAY</strong></h2>
+
+                                <p class="fs-5 fst-italic mb-4">Este proyecto tuvo inicio con el curso PYTHON, desarrollando una web estilo blog. 
+                                <p class="fs-5 fst-italic mb-4">en el que cada autor podría subir sus obras, proporcinando una nueva posibilidad de difusión
+
+                                <p class="text-muted fst-italic mb-3 text-center">los saluda Ankay vy Nicolas.amato</p>
+                            </section>
+{% endblock %}
