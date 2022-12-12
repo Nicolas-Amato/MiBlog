@@ -87,6 +87,7 @@ def mostrar_autor(request):
    autores = autor.objects.all
    
    context = {'autores': autores}
+   
    return render(request, 'mostrar_autor.html', context=context)
    
 ######### ELIMINAR  ##########
@@ -140,7 +141,9 @@ def editar_usuario(request):
 
       usuario_form = UserEditForm(request.POST)
       if usuario_form.is_valid():
+         
          informacion = usuario_form.cleaned_data
+         
          usuario.username = informacion['username']
          usuario.email = informacion['email']
          usuario.password1 = informacion['password1']
@@ -167,7 +170,7 @@ LoginRequiredMixin
 class autorList(ListView):
    
    model = autor
-   template_name = '/autor_list.html'
+   template_name = 'Miblog/autor_list.html'
    
    
 class autorDetailView(DetailView):
