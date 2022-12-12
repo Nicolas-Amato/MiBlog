@@ -23,18 +23,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 ###class  classaprotejer(Mixinparaprotejer)
 
 
-from .models import autor, profesor, avatar
+from .models import autor, avatar
 from .forms import autorForm, SignUpForm, UserEditForm
-
-######### MOSTRAR PROFESORES ##########
-def mostrar_profesores(request):
-   
-   profesores = profesor.objects.all
-   
-   context = {'profesores': profesores}   
-   
-   return render(request, 'mostrar_profesores.html', context=context)
-
 
 def info_ankay(request):
    return render(request, 'info_ankay.html')

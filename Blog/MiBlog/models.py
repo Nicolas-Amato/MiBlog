@@ -15,9 +15,3 @@ class avatar(models.Model):
     imagen = models.ImageField(upload_to='images/', null=True, blank=True)
     
     
-class profesor(models.Model):
-    nombre = models.CharField(max_length = 40)
-    deporte = models.CharField(max_length = 40)
-    DNI = models.IntegerField()
-    def __str__(self):
-        return f'nombre: {self.nombre} - deporte: {self.deporte} - DNI: {self.DNI}'

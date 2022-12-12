@@ -5,7 +5,6 @@ from .forms import autorForm, SignUpForm, UserEditForm
 
 urlpatterns = [
     path('', views.index, name= 'home'),
-    path('mostrar_profesores/', views.mostrar_profesores, name='mostrar PROFESORES'),
     path('info_ankay/', views.info_ankay, name='info ankay'),
     path('buscar_autor/', views.buscar_autor, name='buscar Autor'),
     path('nuevo_autor/', views.nuevo_autor, name='Nuevo Autor'),
