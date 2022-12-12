@@ -5,7 +5,10 @@ from django.contrib.auth.forms import UserCreationForm
 class autorForm(forms.Form):
     nombre = forms.CharField(max_length = 40)
     titulo = forms.CharField(max_length = 40)
+    email = forms.EmailField(max_length=40)
+    subtitulo = forms.CharField(max_length=100)
     post = forms.CharField(widget=forms.Textarea)
+
 
 
 class SignUpForm(UserCreationForm):

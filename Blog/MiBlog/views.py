@@ -59,7 +59,7 @@ def nuevo_autor(request):
          
          formulario_NA_limpio = formulario_NA.cleaned_data
          
-         nuevo_autor = autor(nombre=formulario_NA_limpio['nombre'], titulo=formulario_NA_limpio['titulo'], post=formulario_NA_limpio['post'])
+         nuevo_autor = autor(nombre=formulario_NA_limpio['nombre'], titulo=formulario_NA_limpio['titulo'], email=formulario_NA_limpio['email'], fecha=formulario_NA_limpio['fecha'], subtitulo=formulario_NA_limpio['subtitulo'],post=formulario_NA_limpio['post'], )
          
          nuevo_autor.save
          
@@ -110,6 +110,9 @@ def modif_autor(request, nombre_autor):
          
          autores.nombre = formulario_NA_limpio['nombre'] 
          autores.titulo = formulario_NA_limpio['titulo']
+         autores.email = formulario_NA_limpio['email']
+         autores.fecha = formulario_NA_limpio['fecha']         
+         autores.subtitulo = formulario_NA_limpio['subtitulo']
          autores.post = formulario_NA_limpio['post']
          
          
@@ -118,7 +121,7 @@ def modif_autor(request, nombre_autor):
          return render(request, 'index.html')
 
    else:
-      formulario_NA = autorForm(initial={'nombre': autores.nombre, 'titulo': autores.titulo, 'post': autores.post })
+      formulario_NA = autorForm(initial={'nombre': autores.nombre, 'titulo': autores.titulo, 'email':autores.email, 'fecha':autores.fecha, 'subtitulo':autores.subtitulo, 'post': autores.post })
       
    return render(request, 'modif_autor.html', {'formulario_NA': formulario_NA})
 

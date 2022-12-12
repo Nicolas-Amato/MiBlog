@@ -20,7 +20,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="btn btn-primary" href="{% url 'Nuevo Autor' %}">New Posteo</a>
+                <a class="btn btn-primary" href="{% url 'Nuevo Autor' %}">New Post</a>
                 <a class="btn btn-primary" href="{% url 'info ankay' %}">acerca de Ankay</a>
                 <a class="btn btn-primary" href="{% url 'Sign Up' %}">New Perfil</a>
                 {% if request.user.is_authenticated %}
@@ -42,7 +42,7 @@
                              <h2 class="mb-5">Bienvenido a AnKAy </h2>
                              <h3 class="mb-5">sobre que indagaremos hoy? </h3>
                             {% else %}
-                             <title class="mb-5">AnKAy</title>
+                             <h1 class="mb-5">AnKAy</h1>
                              <h2 class="mb-5">Bienvenido al Blog mas completo de Anime</h2>
                              <h3 class="mb-5">Quien eres?</u> </h3>
                             {% endif %}
@@ -59,7 +59,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <a class="btn btn-primary" href="{% url 'mostrar Autor' %}">Watch Post</a>
-                                        <a class="btn btn-primary" href="{% url 'buscar Autor' %}">Search Posteo</a> 
+                                        <a class="btn btn-primary" href="{% url 'buscar Autor' %}">Search Post</a> 
                                     </div>
                                 </div>
                                 <!-- Submit success message-->
