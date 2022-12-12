@@ -1,0 +1,16 @@
+{% for profesor in profesores %}
+
+<p>
+    {{profesor}} 
+</p>
+
+
+<button> 
+    <a href="{% url "eliminar PROFESORES" DNI_profesor=profesor.DNI %}">Eliminar</a>
+</button> 
+
+<button> 
+    <a href="{% url "modificar PROFESORES" DNI_profesor=profesor.DNI %}">Actualizar profesor</a>
+</button> 
+
+{% endfor %}
