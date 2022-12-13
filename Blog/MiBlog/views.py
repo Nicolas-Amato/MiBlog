@@ -33,36 +33,37 @@ def info_ankay(request):
 def index(request):
    return render(request, 'index.html')
    
-######### BUSQUEDAS ##########
+######### BUSQUEDAS ########## ok
 def buscar_autor(request):
    data = request.GET.get('nombre', '')
-
    error = ''
 
    if data:
       try:
-         PROD = autor.objects.get(nombre = data)
-         return render(request, 'consulta_autor.html', {'PROD':PROD, 'nombre':data})
+         autores = autor.objects.get(nombre=data)
+         return render(request, 'consulta_autor.html', {'autores': autores, 'nombre': data})
       except Exception as exc:
          error = 'no hay resultados'
-   return render(request, 'consulta_autor.html', {'error':error})
+   return render(request, 'consulta_autor.html', {'error': error})
 
 
-######### INGRESOS  ##########
+######### INGRESOS  ########## ok
 @login_required
 def nuevo_autor(request):
    if request.method == 'POST':
       
-      formulario_NA = autorForm(request.POST)
-      
+      formulario_NA = autorForm(request.post)
       if formulario_NA.is_valid():
          
          formulario_NA_limpio = formulario_NA.cleaned_data
          
-         nuevo_autor = autor(nombre=formulario_NA_limpio['nombre'], titulo=formulario_NA_limpio['titulo'], email=formulario_NA_limpio['email'], fecha=formulario_NA_limpio['fecha'], subtitulo=formulario_NA_limpio['subtitulo'],post=formulario_NA_limpio['post'], )
-         
-         nuevo_autor.save
-         
+         nuevo_autor = autor(nombre=formulario_NA_limpio['nombre'],
+                             titulo=formulario_NA_limpio['titulo'],
+                             email=formulario_NA_limpio['email'], 
+                             fecha=formulario_NA_limpio['fecha'],
+                             subtitulo=formulario_NA_limpio['subtitulo'],
+                             post=formulario_NA_limpio['post'])
+         nuevo_autor.save()
          return render(request, 'index.html')
 
    else:
@@ -80,11 +81,11 @@ def mostrar_autor(request):
    
    return render(request, 'mostrar_autor.html', context=context)
    
-######### ELIMINAR  ##########
+######### ELIMINAR  ########## ok
 @login_required
-def eliminar_autor(request, nombre_autor):
+def eliminar_autor(request, autor_nombre):
    
-   autores = autor.objects.get(nombre=nombre_autor)
+   autores = autor.objects.get(nombre=autor_nombre)
    
    autores.delete()
    
@@ -94,11 +95,11 @@ def eliminar_autor(request, nombre_autor):
    
    return render(request, 'mostrar_autor.html', context=context)
    
-######### MODIFICAR  ##########
+######### MODIFICAR  ########## ok
 @login_required
-def modif_autor(request, nombre_autor):
+def modif_autor(request, autor_nombre):
    
-   autores = autor.objects.get(nombre=nombre_autor)
+   autores = autor.objects.get(nombre=autor_nombre)
    
    if request.method == 'POST':
       
@@ -110,8 +111,6 @@ def modif_autor(request, nombre_autor):
          
          autores.nombre = formulario_NA_limpio['nombre'] 
          autores.titulo = formulario_NA_limpio['titulo']
-         autores.email = formulario_NA_limpio['email']
-         autores.fecha = formulario_NA_limpio['fecha']         
          autores.subtitulo = formulario_NA_limpio['subtitulo']
          autores.post = formulario_NA_limpio['post']
          
@@ -202,4 +201,3 @@ class adminloginView(LoginView):
 
 class adminLogoutView(LogoutView):
    template_name = 'logout.html'
-
