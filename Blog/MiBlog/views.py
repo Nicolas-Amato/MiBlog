@@ -70,7 +70,7 @@ def nuevo_autor(request):
       
    return render(request, 'nuevo_autor.html', {'formulario_NA': formulario_NA})
 
-######### MOSTRAR  ##########
+######### MOSTRAR  ########## OK
 def mostrar_autor(request):
    
    posts = autor.objects.all
@@ -86,12 +86,12 @@ def eliminar_autor(request, autor_nombre):
    autores = autor.objects.get(nombre=autor_nombre)
    
    autores.delete()
-   
-   autores = autor.objects.all
+   ####vuelvo al menu   
+   autores = autor.objects.all()
    
    context = {'autores': autores}   
    
-   return render(request, 'mostrar_autor.html', context=context)
+   return render(request, 'mostrar_autor.html', context)
    
 ######### MODIFICAR  ########## ok
 @login_required
@@ -101,16 +101,16 @@ def modif_autor(request, autor_nombre):
    
    if request.method == 'POST':
       
-      formulario_NA = autorForm(request.POST)
+      formulario_NAM = autorForm(request.POST)
       
-      if formulario_NA.is_valid():
+      if formulario_NAM.is_valid():
          
-         formulario_NA_limpio = formulario_NA.cleaned_data
+         formulario_NAM_limpio = formulario_NAM.cleaned_data
          
-         autores.nombre = formulario_NA_limpio['nombre'] 
-         autores.titulo = formulario_NA_limpio['titulo']
-         autores.subtitulo = formulario_NA_limpio['subtitulo']
-         autores.post = formulario_NA_limpio['post']
+         autores.nombre = formulario_NAM_limpio['nombre'] 
+         autores.titulo = formulario_NAM_limpio['titulo']
+         autores.subtitulo = formulario_NAM_limpio['subtitulo']
+         autores.post = formulario_NAM_limpio['post']
          
          
          autores.save()
@@ -118,9 +118,9 @@ def modif_autor(request, autor_nombre):
          return render(request, 'index.html')
 
    else:
-      formulario_NA = autorForm(initial={'nombre': autores.nombre, 'titulo': autores.titulo, 'email':autores.email, 'fecha':autores.fecha, 'subtitulo':autores.subtitulo, 'post': autores.post })
+      formulario_NAM = autorForm(initial={'nombre': autores.nombre, 'titulo': autores.titulo, 'email':autores.email, 'fecha':autores.fecha, 'subtitulo':autores.subtitulo, 'post': autores.post })
       
-   return render(request, 'modif_autor.html', {'formulario_NA': formulario_NA})
+   return render(request, 'modif_autor.html', {'formulario_NAM': formulario_NAM})
 
 #### update admin #####
 @login_required
