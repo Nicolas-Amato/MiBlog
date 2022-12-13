@@ -52,7 +52,7 @@ def buscar_autor(request):
 def nuevo_autor(request):
    if request.method == 'POST':
       
-      formulario_NA = autorForm(request.post)
+      formulario_NA = autorForm(request.POST)
       if formulario_NA.is_valid():
          
          formulario_NA_limpio = formulario_NA.cleaned_data
@@ -60,7 +60,6 @@ def nuevo_autor(request):
          nuevo_autor = autor(nombre=formulario_NA_limpio['nombre'],
                              titulo=formulario_NA_limpio['titulo'],
                              email=formulario_NA_limpio['email'], 
-                             fecha=formulario_NA_limpio['fecha'],
                              subtitulo=formulario_NA_limpio['subtitulo'],
                              post=formulario_NA_limpio['post'])
          nuevo_autor.save()
