@@ -70,15 +70,14 @@ def nuevo_autor(request):
       
    return render(request, 'nuevo_autor.html', {'formulario_NA': formulario_NA})
 
-
 ######### MOSTRAR  ##########
 def mostrar_autor(request):
    
-   autores = autor.objects.all
+   posts = autor.objects.all
    
-   context = {'autores': autores}
+   context = {'posts': posts}
    
-   return render(request, 'mostrar_autor.html', context=context)
+   return render(request, 'mostrar_autor.html', context)
    
 ######### ELIMINAR  ########## ok
 @login_required
@@ -154,7 +153,6 @@ def editar_usuario(request):
       'form': usuario_form,
       'usuario': usuario
    })
-
 
 
 LoginRequiredMixin

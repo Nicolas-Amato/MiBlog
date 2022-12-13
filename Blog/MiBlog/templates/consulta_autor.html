@@ -9,10 +9,10 @@
     <input type='submit' value='buscar'></button> 
 </form>
 
-{% if  PROD %}
+{% if  autor %}
 
    <ul>
-        <li> El escritor {{PROD.nombre}} a cargo del POST {{PROD.titulo}}   </li>
+        <li> El escritor {{autor.nombre}} a cargo del POST {{autor.titulo}}   </li>
    </ul>
 {% endif %}
 

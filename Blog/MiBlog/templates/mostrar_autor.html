@@ -1,16 +1,7 @@
-{% for autor in autores %}
+<body>
+    
+    {% for post in posts %}
 
-<p>
-    {{autor.id}} 
-</p>
+    {{post}}
 
-
-<button> 
-    <a href="{% url "eliminar Autor" nombre_autores=autor.nombre %}">Eliminar</a>
-</button> 
-
-<button> 
-    <a href="{% url "modificar Autor" nombre_autores=autor.nombre %}">Actualizar Autor</a>
-</button> 
-
-{% endfor %}
+    {% endfor %}
